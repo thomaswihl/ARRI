@@ -40,6 +40,9 @@ added a conflicting line in master branch
 #include "TypesPkg.h"
 //## package TypesPkg
 
+#include "YetAnotherMasterFeature.h"
+
+
 //## class RingBuffer
 ///
 ///In opposition to the STL containers this one doesn't stretch with the amount of data you put in, but it has a fixed size 
