@@ -1,6 +1,9 @@
 /**
 * (C) copyright 2009
 *
+
+added a conflicting line in master branch
+
 * @file ../src/app/rpy_generated/RingBuffer.h
 * @author MichaelMayer
 * @brief 
@@ -21,6 +24,8 @@
 #pragma warning(disable: 4786)
 #endif
 //#]
+
+#define A_NON_CONFLICTING_LINE
 
 //## auto_generated
 #include <oxf/oxf.h>
