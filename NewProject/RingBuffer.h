@@ -1,5 +1,8 @@
 /**
-* (C) copyright 2009
+* (C) copyright 2020
+
+Changed that line in mysBranch
+
 *
 
 added a conflicting line in master branch
