@@ -41,7 +41,7 @@ added a conflicting line in master branch
 //## package TypesPkg
 
 #include "YetAnotherMasterFeature.h"
-
+#include "YetAnotherBugfix.h"   // mysBranch
 
 //## class RingBuffer
 ///
