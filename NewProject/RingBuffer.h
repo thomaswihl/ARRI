@@ -35,6 +35,8 @@ Changed that line in mysBranch
 #include "TypesPkg.h"
 //## package TypesPkg
 
+#include "YetAnotherBugfix.h"   // mysBranch
+
 //## class RingBuffer
 ///
 ///In opposition to the STL containers this one doesn't stretch with the amount of data you put in, but it has a fixed size 
