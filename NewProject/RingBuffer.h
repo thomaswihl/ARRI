@@ -21,12 +21,16 @@ added a conflicting line in master branch
 #ifndef RingBuffer_H
 #define RingBuffer_H
 
+#define StageTest
+
 //#[ ignore
 #ifdef _MSC_VER
 // disable Microsoft compiler warning (debug information truncated)
 #pragma warning(disable: 4786)
 #endif
 //#]
+
+#define StageTest2
 
 #define A_NON_CONFLICTING_LINE
 
