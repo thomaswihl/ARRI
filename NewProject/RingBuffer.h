@@ -1,501 +1,497 @@
 /**
-* (C) COPYRIGHT 2020
+* (c) copyright 2020
 
-CHANGED THAT LINE IN MYSBRANCH
+changed that line in mysbranch
 
 *
 
-ADDED A CONFLICTING LINE IN MASTER BRANCH
+added a conflicting line in master branch
 
-* @FILE ../SRC/APP/RPY_GENERATED/RINGBUFFER.H
-* @AUTHOR MICHAELMAYER
-* @BRIEF 
+* @file ../src/app/rpy_generated/ringbuffer.h
+* @author michaelmayer
+* @brief 
 *
-* RHAPSODY: 7.6
-* COMPONENT: EMC
-* CONFIGURATION: C166
-* ELEMENT: RINGBUFFER
+* rhapsody: 7.6
+* component: emc
+* configuration: c166
+* element: ringbuffer
 *
 */
 
-#IFNDEF RINGBUFFER_H
-#DEFINE RINGBUFFER_H
+#ifndef ringbuffer_h
+#define ringbuffer_h
 
-#DEFINE STAGETEST
-
-//#[ IGNORE
-#IFDEF _MSC_VER
-// DISABLE MICROSOFT COMPILER WARNING (DEBUG INFORMATION TRUNCATED)
-#PRAGMA WARNING(DISABLE: 4786)
-#ENDIF
+//#[ ignore
+#ifdef _msc_ver
+// disable microsoft compiler warning (debug information truncated)
+#pragma warning(disable: 4786)
+#endif
 //#]
 
-#DEFINE STAGETEST2
+#define a_non_conflicting_line
 
-#DEFINE A_NON_CONFLICTING_LINE
+//## auto_generated
+#include <oxf/oxf.h>
+//## auto_generated
+#include <string>
+//## auto_generated
+#include <algorithm>
+//## auto_generated
+#include "typespkg.h"
+//## package typespkg
 
-//## AUTO_GENERATED
-#INCLUDE <OXF/OXF.H>
-//## AUTO_GENERATED
-#INCLUDE <STRING>
-//## AUTO_GENERATED
-#INCLUDE <ALGORITHM>
-//## AUTO_GENERATED
-#INCLUDE "TYPESPKG.H"
-//## PACKAGE TYPESPKG
+#include "yetanothermasterfeature.h"
+#include "yetanotherbugfix.h"   // mysbranch
 
-#INCLUDE "YETANOTHERMASTERFEATURE.H"
-#INCLUDE "YETANOTHERBUGFIX.H"   // MYSBRANCH
-
-//## CLASS RINGBUFFER
+//## class ringbuffer
 ///
-///IN OPPOSITION TO THE STL CONTAINERS THIS ONE DOESN'T STRETCH WITH THE AMOUNT OF DATA YOU PUT IN, BUT IT HAS A FIXED SIZE 
-///AND IF YOU WRITE MORE THAN THAT INTO IT IT JUST OVERWRITES THE OLD DATA BEGINNING WITH THE FIRST ...
-TEMPLATE <CLASS T> CLASS RINGBUFFER {
-PUBLIC :
+///in opposition to the stl containers this one doesn't stretch with the amount of data you put in, but it has a fixed size 
+///and if you write more than that into it it just overwrites the old data beginning with the first ...
+template <class t> class ringbuffer {
+public :
 
-    //## AUTO_GENERATED
-    CLASS ITERATOR;
+    //## auto_generated
+    class iterator;
     
     ///
     ///
-    //## CLASS RINGBUFFER::ITERATOR
-    CLASS ITERATOR {
-        ////    CONSTRUCTORS AND DESTRUCTORS    ////
+    //## class ringbuffer::iterator
+    class iterator {
+        ////    constructors and destructors    ////
         
-    PUBLIC :
+    public :
     
         ///
         ///
-        //## OPERATION ITERATOR(CONST ITERATOR&)
-        ITERATOR(CONST ITERATOR& OTHER);
+        //## operation iterator(const iterator&)
+        iterator(const iterator& other);
         
         ///
         ///
-        //## OPERATION ITERATOR(UINT16_T,CONST RINGBUFFER<T>*)
-        ITERATOR(UINT16_T INDEX, CONST RINGBUFFER<T>* RINGBUFFER);
+        //## operation iterator(uint16_t,const ringbuffer<t>*)
+        iterator(uint16_t index, const ringbuffer<t>* ringbuffer);
         
-        ////    OPERATIONS    ////
-        
-        ///
-        ///
-        //## OPERATION OPERATOR!=(CONST ITERATOR&) CONST
-        INLINE BOOL OPERATOR!=(CONST ITERATOR& OTHER) CONST;
+        ////    operations    ////
         
         ///
         ///
-        //## OPERATION OPERATOR*() CONST
-        INLINE T& OPERATOR*() CONST;
+        //## operation operator!=(const iterator&) const
+        inline bool operator!=(const iterator& other) const;
         
         ///
         ///
-        //## OPERATION OPERATOR+(INT16_T) CONST
-        INLINE TYPENAME RINGBUFFER<T>::ITERATOR OPERATOR+(INT16_T DISTANCE) CONST;
+        //## operation operator*() const
+        inline t& operator*() const;
         
         ///
         ///
-        //## OPERATION OPERATOR++()
-        INLINE TYPENAME RINGBUFFER<T>::ITERATOR& OPERATOR++();
+        //## operation operator+(int16_t) const
+        inline typename ringbuffer<t>::iterator operator+(int16_t distance) const;
         
         ///
         ///
-        //## OPERATION OPERATOR+=(INT16_T)
-        TYPENAME RINGBUFFER<T>::ITERATOR& OPERATOR+=(INT16_T DISTANCE);
+        //## operation operator++()
+        inline typename ringbuffer<t>::iterator& operator++();
         
         ///
         ///
-        //## OPERATION OPERATOR-(CONST ITERATOR&) CONST
-        INLINE UINT16_T OPERATOR-(CONST ITERATOR& OTHER) CONST;
+        //## operation operator+=(int16_t)
+        typename ringbuffer<t>::iterator& operator+=(int16_t distance);
         
         ///
         ///
-        //## OPERATION OPERATOR-(INT16_T) CONST
-        INLINE TYPENAME RINGBUFFER<T>::ITERATOR OPERATOR-(INT16_T DISTANCE) CONST;
+        //## operation operator-(const iterator&) const
+        inline uint16_t operator-(const iterator& other) const;
         
         ///
         ///
-        //## OPERATION OPERATOR--()
-        INLINE TYPENAME RINGBUFFER<T>::ITERATOR& OPERATOR--();
+        //## operation operator-(int16_t) const
+        inline typename ringbuffer<t>::iterator operator-(int16_t distance) const;
         
         ///
         ///
-        //## OPERATION OPERATOR-=(INT16_T)
-        INLINE TYPENAME RINGBUFFER<T>::ITERATOR& OPERATOR-=(INT16_T DISTANCE);
+        //## operation operator--()
+        inline typename ringbuffer<t>::iterator& operator--();
         
         ///
         ///
-        //## OPERATION OPERATOR->() CONST
-        INLINE CONST T* OPERATOR->() CONST;
+        //## operation operator-=(int16_t)
+        inline typename ringbuffer<t>::iterator& operator-=(int16_t distance);
         
         ///
         ///
-        //## OPERATION OPERATOR=(CONST ITERATOR&)
-        INLINE CONST TYPENAME RINGBUFFER<T>::ITERATOR& OPERATOR=(CONST ITERATOR& OTHER);
+        //## operation operator->() const
+        inline const t* operator->() const;
         
         ///
         ///
-        //## OPERATION OPERATOR==(CONST ITERATOR&) CONST
-        INLINE BOOL OPERATOR==(CONST ITERATOR& OTHER) CONST;
+        //## operation operator=(const iterator&)
+        inline const typename ringbuffer<t>::iterator& operator=(const iterator& other);
         
-        ////    ATTRIBUTES    ////
+        ///
+        ///
+        //## operation operator==(const iterator&) const
+        inline bool operator==(const iterator& other) const;
+        
+        ////    attributes    ////
     
-    PRIVATE :
+    private :
     
         ///
         ///
-        UINT16_T INDEX;		//## ATTRIBUTE INDEX
+        uint16_t index;		//## attribute index
         
         ///
         ///
-        CONST RINGBUFFER<T>* ITSRINGBUFFER;		//## ATTRIBUTE ITSRINGBUFFER
+        const ringbuffer<t>* itsringbuffer;		//## attribute itsringbuffer
     };
     
-    ////    CONSTRUCTORS AND DESTRUCTORS    ////
+    ////    constructors and destructors    ////
     
     ///
     ///
-    //## OPERATION RINGBUFFER(UINT16_T)
-    RINGBUFFER(UINT16_T THECAPACITY);
+    //## operation ringbuffer(uint16_t)
+    ringbuffer(uint16_t thecapacity);
     
     ///
-    /// USE THIS CONSTRUCTOR WHEN YOU ALREADY HAVE A (LINEAR) BUFFER AND JUST WANT TO WRAPP A RINGBUFFER AROUND THAT.
+    /// use this constructor when you already have a (linear) buffer and just want to wrapp a ringbuffer around that.
     ///
-    /// CAPACITY IS THE TOTAL SIZE OF THE GIVEN ARRAY.
-    /// SIZE IS NUMBER OF ALREADY FILLED BYTES OF CONTENT.
+    /// capacity is the total size of the given array.
+    /// size is number of already filled bytes of content.
     ///
-    /// CAPACITY MUST BE BIGGER THAN SIZE!!
-    //## OPERATION RINGBUFFER(T,UINT16_T,UINT16_T)
-    RINGBUFFER(T* BUFFER, UINT16_T CAPACITY, UINT16_T SIZE);
-    
-    ///
-    ///
-    //## OPERATION ~RINGBUFFER()
-    ~RINGBUFFER();
-    
-    ////    OPERATIONS    ////
+    /// capacity must be bigger than size!!
+    //## operation ringbuffer(t,uint16_t,uint16_t)
+    ringbuffer(t* buffer, uint16_t capacity, uint16_t size);
     
     ///
     ///
-    //## OPERATION BEGIN() CONST
-    INLINE TYPENAME RINGBUFFER<T>::ITERATOR BEGIN() CONST;
+    //## operation ~ringbuffer()
+    ~ringbuffer();
     
-    ///
-    /// THIS RETURNS THE ACTUAL SIZE OF THE RESERVED SPACE. DUE TO THE INTERNAL HANDLING IT IS INDEED ONE MORE
-    /// THAN THE CAPACITY ARGUMENT PROVIDED IN THE CONSTRUCTOR!
-    //## OPERATION CAPACITY() CONST
-    INLINE UINT16_T CAPACITY() CONST;
+    ////    operations    ////
     
     ///
     ///
-    //## OPERATION CLEAR()
-    INLINE VOID CLEAR();
+    //## operation begin() const
+    inline typename ringbuffer<t>::iterator begin() const;
+    
+    ///
+    /// this returns the actual size of the reserved space. due to the internal handling it is indeed one more
+    /// than the capacity argument provided in the constructor!
+    //## operation capacity() const
+    inline uint16_t capacity() const;
     
     ///
     ///
-    //## OPERATION EMPTY() CONST
-    INLINE BOOL EMPTY() CONST;
+    //## operation clear()
+    inline void clear();
     
     ///
     ///
-    //## OPERATION END() CONST
-    INLINE TYPENAME RINGBUFFER<T>::ITERATOR END() CONST;
-    
-    ///
-    /// HOW MANY ELEMENTS COULD BE STUFFED IN WITHOUT OVERRING ANY EXISTING.
-    //## OPERATION FREE() CONST
-    INLINE UINT16_T FREE() CONST;
+    //## operation empty() const
+    inline bool empty() const;
     
     ///
     ///
-    //## OPERATION FRONT()
-    INLINE T& FRONT();
+    //## operation end() const
+    inline typename ringbuffer<t>::iterator end() const;
+    
+    ///
+    /// how many elements could be stuffed in without overring any existing.
+    //## operation free() const
+    inline uint16_t free() const;
     
     ///
     ///
-    //## OPERATION FULL() CONST
-    INLINE BOOL FULL() CONST;
-    
-    ///
-    /// JUST TAKE BACK THE PREVIOUSLY WRITTEN CHARACTER.
-    ///
-    /// PRECONDITION: !EMPTY()
-    //## OPERATION POP_BACK()
-    INLINE VOID POP_BACK();
+    //## operation front()
+    inline t& front();
     
     ///
     ///
-    //## OPERATION POP_FRONT()
-    INLINE VOID POP_FRONT();
+    //## operation full() const
+    inline bool full() const;
+    
+    ///
+    /// just take back the previously written character.
+    ///
+    /// precondition: !empty()
+    //## operation pop_back()
+    inline void pop_back();
     
     ///
     ///
-    //## OPERATION PUSH_BACK(CONST T&)
-    INLINE VOID PUSH_BACK(CONST T& ELEMENT);
+    //## operation pop_front()
+    inline void pop_front();
     
     ///
     ///
-    //## OPERATION SIZE() CONST
-    INLINE UINT16_T SIZE() CONST;
+    //## operation push_back(const t&)
+    inline void push_back(const t& element);
     
-    ////    ATTRIBUTES    ////
+    ///
+    ///
+    //## operation size() const
+    inline uint16_t size() const;
+    
+    ////    attributes    ////
 
-PRIVATE :
+private :
 
     ///
     ///
-    CONST UINT16_T _CAPACITY;		//## ATTRIBUTE _CAPACITY
+    const uint16_t _capacity;		//## attribute _capacity
     
     ///
     ///
-    UINT16_T _READ;		//## ATTRIBUTE _READ
+    uint16_t _read;		//## attribute _read
     
     ///
     ///
-    UINT16_T _WRITE;		//## ATTRIBUTE _WRITE
+    uint16_t _write;		//## attribute _write
     
     ///
-    /// REMEMBER IF WE SHOULD DELETE THE ELEMENTS IN DESTRUCTOR
-    CONST BOOL DONTDELETE;		//## ATTRIBUTE DONTDELETE
+    /// remember if we should delete the elements in destructor
+    const bool dontdelete;		//## attribute dontdelete
     
     ///
     ///
-    T* ELEMENTS;		//## ATTRIBUTE ELEMENTS
+    t* elements;		//## attribute elements
 };
 
-//## PACKAGE TYPESPKG
+//## package typespkg
 
-//## CLASS RINGBUFFER
-TEMPLATE <CLASS T> RINGBUFFER<T>::RINGBUFFER(UINT16_T THECAPACITY) : _CAPACITY(THECAPACITY + 1), _READ(0), _WRITE(0), DONTDELETE(FALSE), ELEMENTS(NEW T[_CAPACITY]) {
-    //#[ OPERATION RINGBUFFER(UINT16_T)
+//## class ringbuffer
+template <class t> ringbuffer<t>::ringbuffer(uint16_t thecapacity) : _capacity(thecapacity + 1), _read(0), _write(0), dontdelete(false), elements(new t[_capacity]) {
+    //#[ operation ringbuffer(uint16_t)
     //#]
 }
 
-TEMPLATE <CLASS T> RINGBUFFER<T>::RINGBUFFER(T* BUFFER, UINT16_T CAPACITY, UINT16_T SIZE) : _CAPACITY(CAPACITY), _READ(0), _WRITE(SIZE), DONTDELETE(TRUE), ELEMENTS(BUFFER) {
-    //#[ OPERATION RINGBUFFER(T,UINT16_T,UINT16_T)
+template <class t> ringbuffer<t>::ringbuffer(t* buffer, uint16_t capacity, uint16_t size) : _capacity(capacity), _read(0), _write(size), dontdelete(true), elements(buffer) {
+    //#[ operation ringbuffer(t,uint16_t,uint16_t)
     //#]
 }
 
-TEMPLATE <CLASS T> RINGBUFFER<T>::~RINGBUFFER() {
-    //#[ OPERATION ~RINGBUFFER()
-    IF (!DONTDELETE) DELETE[] ELEMENTS;
+template <class t> ringbuffer<t>::~ringbuffer() {
+    //#[ operation ~ringbuffer()
+    if (!dontdelete) delete[] elements;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE TYPENAME RINGBUFFER<T>::ITERATOR RINGBUFFER<T>::BEGIN() CONST {
-    //#[ OPERATION BEGIN() CONST
-    ITERATOR ITER(_READ, THIS);
-    RETURN ITER;
+template <class t> inline typename ringbuffer<t>::iterator ringbuffer<t>::begin() const {
+    //#[ operation begin() const
+    iterator iter(_read, this);
+    return iter;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE UINT16_T RINGBUFFER<T>::CAPACITY() CONST {
-    //#[ OPERATION CAPACITY() CONST
-    RETURN _CAPACITY;
+template <class t> inline uint16_t ringbuffer<t>::capacity() const {
+    //#[ operation capacity() const
+    return _capacity;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE VOID RINGBUFFER<T>::CLEAR() {
-    //#[ OPERATION CLEAR()
-    _READ = _WRITE;
+template <class t> inline void ringbuffer<t>::clear() {
+    //#[ operation clear()
+    _read = _write;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE BOOL RINGBUFFER<T>::EMPTY() CONST {
-    //#[ OPERATION EMPTY() CONST
-    RETURN (_READ == _WRITE);
+template <class t> inline bool ringbuffer<t>::empty() const {
+    //#[ operation empty() const
+    return (_read == _write);
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE TYPENAME RINGBUFFER<T>::ITERATOR RINGBUFFER<T>::END() CONST {
-    //#[ OPERATION END() CONST
-    ITERATOR ITER(_WRITE, THIS);
-    RETURN ITER;
+template <class t> inline typename ringbuffer<t>::iterator ringbuffer<t>::end() const {
+    //#[ operation end() const
+    iterator iter(_write, this);
+    return iter;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE UINT16_T RINGBUFFER<T>::FREE() CONST {
-    //#[ OPERATION FREE() CONST
-    RETURN CAPACITY() - SIZE() - 1;
+template <class t> inline uint16_t ringbuffer<t>::free() const {
+    //#[ operation free() const
+    return capacity() - size() - 1;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE T& RINGBUFFER<T>::FRONT() {
-    //#[ OPERATION FRONT()
-    RETURN ELEMENTS[_READ];
+template <class t> inline t& ringbuffer<t>::front() {
+    //#[ operation front()
+    return elements[_read];
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE BOOL RINGBUFFER<T>::FULL() CONST {
-    //#[ OPERATION FULL() CONST
-    UINT16_T IDX = _WRITE + 1;
-    IF (IDX == _CAPACITY) IDX = 0;
+template <class t> inline bool ringbuffer<t>::full() const {
+    //#[ operation full() const
+    uint16_t idx = _write + 1;
+    if (idx == _capacity) idx = 0;
     
-    RETURN (IDX == _READ);
+    return (idx == _read);
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE VOID RINGBUFFER<T>::POP_BACK() {
-    //#[ OPERATION POP_BACK()
-    IF (_WRITE == _CAPACITY - 1) _WRITE = 0;
-    ELSE --_WRITE;
+template <class t> inline void ringbuffer<t>::pop_back() {
+    //#[ operation pop_back()
+    if (_write == _capacity - 1) _write = 0;
+    else --_write;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE VOID RINGBUFFER<T>::POP_FRONT() {
-    //#[ OPERATION POP_FRONT()
-    UINT16_T IDX = _READ + 1;
-    IF (IDX == _CAPACITY) IDX = 0;
+template <class t> inline void ringbuffer<t>::pop_front() {
+    //#[ operation pop_front()
+    uint16_t idx = _read + 1;
+    if (idx == _capacity) idx = 0;
     
-    _READ = IDX;
+    _read = idx;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE VOID RINGBUFFER<T>::PUSH_BACK(CONST T& ELEMENT) {
-    //#[ OPERATION PUSH_BACK(CONST T&)
-    UINT16_T IDX = _WRITE + 1;
-    IF (IDX == _CAPACITY) IDX = 0;
+template <class t> inline void ringbuffer<t>::push_back(const t& element) {
+    //#[ operation push_back(const t&)
+    uint16_t idx = _write + 1;
+    if (idx == _capacity) idx = 0;
     
-    ELEMENTS[_WRITE] = ELEMENT;
-    _WRITE = IDX;
+    elements[_write] = element;
+    _write = idx;
     
-    /* THIS IS DANGEROUS! WHEN A ISR EMPTIES US RIGHT IN THIS MOMENT
-       WE SET THE BUFFER FROM EMPTY TO COMPLETE FULL!
-    IF (_END == _BEGIN)
+    /* this is dangerous! when a isr empties us right in this moment
+       we set the buffer from empty to complete full!
+    if (_end == _begin)
     {
-        ++_BEGIN;   // WE JUST OVERWRITE, THE USER TAKES CARE OF THE CAPACITY!!
+        ++_begin;   // we just overwrite, the user takes care of the capacity!!
     }
     */
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE UINT16_T RINGBUFFER<T>::SIZE() CONST {
-    //#[ OPERATION SIZE() CONST
-    UINT16_T SIZE = _WRITE - _READ;
-    IF ((INT16_T)SIZE >= 0) RETURN SIZE;
-    ELSE RETURN ((INT16_T)SIZE + _CAPACITY);
+template <class t> inline uint16_t ringbuffer<t>::size() const {
+    //#[ operation size() const
+    uint16_t size = _write - _read;
+    if ((int16_t)size >= 0) return size;
+    else return ((int16_t)size + _capacity);
     //#]
 }
 
-TEMPLATE <CLASS T> RINGBUFFER<T>::ITERATOR::ITERATOR(CONST ITERATOR& OTHER) : ITSRINGBUFFER(OTHER.ITSRINGBUFFER), INDEX(OTHER.INDEX) {
-    //#[ OPERATION ITERATOR(CONST ITERATOR&)
+template <class t> ringbuffer<t>::iterator::iterator(const iterator& other) : itsringbuffer(other.itsringbuffer), index(other.index) {
+    //#[ operation iterator(const iterator&)
     //#]
 }
 
-TEMPLATE <CLASS T> RINGBUFFER<T>::ITERATOR::ITERATOR(UINT16_T INDEX, CONST RINGBUFFER<T>* RINGBUFFER) : ITSRINGBUFFER(RINGBUFFER), INDEX(INDEX) {
-    //#[ OPERATION ITERATOR(UINT16_T,CONST RINGBUFFER<T>*)
+template <class t> ringbuffer<t>::iterator::iterator(uint16_t index, const ringbuffer<t>* ringbuffer) : itsringbuffer(ringbuffer), index(index) {
+    //#[ operation iterator(uint16_t,const ringbuffer<t>*)
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE BOOL RINGBUFFER<T>::ITERATOR::OPERATOR!=(CONST ITERATOR& OTHER) CONST {
-    //#[ OPERATION OPERATOR!=(CONST ITERATOR&) CONST
-    RETURN (INDEX != OTHER.INDEX);
+template <class t> inline bool ringbuffer<t>::iterator::operator!=(const iterator& other) const {
+    //#[ operation operator!=(const iterator&) const
+    return (index != other.index);
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE T& RINGBUFFER<T>::ITERATOR::OPERATOR*() CONST {
-    //#[ OPERATION OPERATOR*() CONST
-    RETURN ITSRINGBUFFER->ELEMENTS[INDEX];
+template <class t> inline t& ringbuffer<t>::iterator::operator*() const {
+    //#[ operation operator*() const
+    return itsringbuffer->elements[index];
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE TYPENAME RINGBUFFER<T>::ITERATOR RINGBUFFER<T>::ITERATOR::OPERATOR+(INT16_T DISTANCE) CONST {
-    //#[ OPERATION OPERATOR+(INT16_T) CONST
-    ITERATOR ITER(*THIS);
-    ITER += DISTANCE;
-    RETURN ITER;
+template <class t> inline typename ringbuffer<t>::iterator ringbuffer<t>::iterator::operator+(int16_t distance) const {
+    //#[ operation operator+(int16_t) const
+    iterator iter(*this);
+    iter += distance;
+    return iter;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE TYPENAME RINGBUFFER<T>::ITERATOR& RINGBUFFER<T>::ITERATOR::OPERATOR++() {
-    //#[ OPERATION OPERATOR++()
-    IF (INDEX == ITSRINGBUFFER->_CAPACITY - 1)  // WE ALREADY POINT TO LAST ELEMENT
+template <class t> inline typename ringbuffer<t>::iterator& ringbuffer<t>::iterator::operator++() {
+    //#[ operation operator++()
+    if (index == itsringbuffer->_capacity - 1)  // we already point to last element
     {
-        INDEX = 0;
+        index = 0;
     }
-    ELSE
+    else
     {
-        ++INDEX;
+        ++index;
     }
-    RETURN *THIS;
+    return *this;
     //#]
 }
 
-TEMPLATE <CLASS T> TYPENAME RINGBUFFER<T>::ITERATOR& RINGBUFFER<T>::ITERATOR::OPERATOR+=(INT16_T DISTANCE) {
-    //#[ OPERATION OPERATOR+=(INT16_T)
-    INT16_T NEWINDEX = INDEX + DISTANCE;
+template <class t> typename ringbuffer<t>::iterator& ringbuffer<t>::iterator::operator+=(int16_t distance) {
+    //#[ operation operator+=(int16_t)
+    int16_t newindex = index + distance;
     
-    IF (NEWINDEX >= ITSRINGBUFFER->_CAPACITY) 
+    if (newindex >= itsringbuffer->_capacity) 
     {
-        NEWINDEX = NEWINDEX % ITSRINGBUFFER->_CAPACITY;
+        newindex = newindex % itsringbuffer->_capacity;
     }
-    ELSE IF (NEWINDEX < 0)
+    else if (newindex < 0)
     {
-        NEWINDEX = -NEWINDEX;
-        NEWINDEX = NEWINDEX % ITSRINGBUFFER->_CAPACITY;
-        NEWINDEX = ITSRINGBUFFER->_CAPACITY - NEWINDEX;
+        newindex = -newindex;
+        newindex = newindex % itsringbuffer->_capacity;
+        newindex = itsringbuffer->_capacity - newindex;
     }
     
-    INDEX = NEWINDEX;
+    index = newindex;
     
-    RETURN *THIS;
+    return *this;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE UINT16_T RINGBUFFER<T>::ITERATOR::OPERATOR-(CONST ITERATOR& OTHER) CONST {
-    //#[ OPERATION OPERATOR-(CONST ITERATOR&) CONST
-    UINT16_T RESULT = INDEX - OTHER.INDEX;
-    IF ((INT16_T)RESULT < 0) RESULT += ITSRINGBUFFER->_CAPACITY;
-    RETURN RESULT;
+template <class t> inline uint16_t ringbuffer<t>::iterator::operator-(const iterator& other) const {
+    //#[ operation operator-(const iterator&) const
+    uint16_t result = index - other.index;
+    if ((int16_t)result < 0) result += itsringbuffer->_capacity;
+    return result;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE TYPENAME RINGBUFFER<T>::ITERATOR RINGBUFFER<T>::ITERATOR::OPERATOR-(INT16_T DISTANCE) CONST {
-    //#[ OPERATION OPERATOR-(INT16_T) CONST
-    RETURN OPERATOR+(-DISTANCE);
+template <class t> inline typename ringbuffer<t>::iterator ringbuffer<t>::iterator::operator-(int16_t distance) const {
+    //#[ operation operator-(int16_t) const
+    return operator+(-distance);
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE TYPENAME RINGBUFFER<T>::ITERATOR& RINGBUFFER<T>::ITERATOR::OPERATOR--() {
-    //#[ OPERATION OPERATOR--()
-    IF (INDEX == 0)  // WE ALREADY POINT TO FIRST ELEMENT
+template <class t> inline typename ringbuffer<t>::iterator& ringbuffer<t>::iterator::operator--() {
+    //#[ operation operator--()
+    if (index == 0)  // we already point to first element
     {
-        INDEX = ITSRINGBUFFER->_CAPACITY - 1;
+        index = itsringbuffer->_capacity - 1;
     }
-    ELSE
+    else
     {
-        --INDEX;
+        --index;
     }
-    RETURN *THIS;
+    return *this;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE TYPENAME RINGBUFFER<T>::ITERATOR& RINGBUFFER<T>::ITERATOR::OPERATOR-=(INT16_T DISTANCE) {
-    //#[ OPERATION OPERATOR-=(INT16_T)
-    RETURN OPERATOR+=(-DISTANCE);
+template <class t> inline typename ringbuffer<t>::iterator& ringbuffer<t>::iterator::operator-=(int16_t distance) {
+    //#[ operation operator-=(int16_t)
+    return operator+=(-distance);
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE CONST T* RINGBUFFER<T>::ITERATOR::OPERATOR->() CONST {
-    //#[ OPERATION OPERATOR->() CONST
-    RETURN &ITSRINGBUFFER->ELEMENTS[INDEX];
+template <class t> inline const t* ringbuffer<t>::iterator::operator->() const {
+    //#[ operation operator->() const
+    return &itsringbuffer->elements[index];
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE CONST TYPENAME RINGBUFFER<T>::ITERATOR& RINGBUFFER<T>::ITERATOR::OPERATOR=(CONST ITERATOR& OTHER) {
-    //#[ OPERATION OPERATOR=(CONST ITERATOR&)
-    INDEX = OTHER.INDEX;
-    ITSRINGBUFFER = OTHER.ITSRINGBUFFER;
-    RETURN *THIS;
+template <class t> inline const typename ringbuffer<t>::iterator& ringbuffer<t>::iterator::operator=(const iterator& other) {
+    //#[ operation operator=(const iterator&)
+    index = other.index;
+    itsringbuffer = other.itsringbuffer;
+    return *this;
     //#]
 }
 
-TEMPLATE <CLASS T> INLINE BOOL RINGBUFFER<T>::ITERATOR::OPERATOR==(CONST ITERATOR& OTHER) CONST {
-    //#[ OPERATION OPERATOR==(CONST ITERATOR&) CONST
-    RETURN (INDEX == OTHER.INDEX);
+template <class t> inline bool ringbuffer<t>::iterator::operator==(const iterator& other) const {
+    //#[ operation operator==(const iterator&) const
+    return (index == other.index);
     //#]
 }
 
-#ENDIF
+#endif
 /*********************************************************************
-	FILE PATH	: ../SRC/APP/RPY_GENERATED/RINGBUFFER.H
+	file path	: ../src/app/rpy_generated/ringbuffer.h
 *********************************************************************/
