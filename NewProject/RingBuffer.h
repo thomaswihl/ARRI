@@ -40,6 +40,9 @@ added a conflicting line in master branch
 #include "typespkg.h"
 //## package typespkg
 
+# define this will be dangling!!
+
+
 #include "yetanothermasterfeature.h"
 #include "yetanotherbugfix.h"   // mysbranch
 
